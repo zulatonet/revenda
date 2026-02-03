@@ -23,6 +23,11 @@ interface Plan {
   popular?: boolean;
 }
 
+// --- Constants ---
+const WHATSAPP_NUMBER = "554799970313";
+const DEFAULT_MESSAGE = encodeURIComponent("Olá. Gostaria de ter mais informações sobre a Revenda de Créditos SalaVip");
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_MESSAGE}`;
+
 // --- Components ---
 
 const Navbar = () => (
@@ -182,41 +187,51 @@ const Pricing = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {plans.map((plan) => (
-            <div 
-              key={plan.id} 
-              className={`glass rounded-[2.5rem] p-1 transition-all duration-500 hover:-translate-y-2 group ${plan.popular ? 'border-cyan-500/50 ring-4 ring-cyan-500/5 shadow-2xl scale-105 z-10' : 'border-white/5'}`}
-            >
-              <div className="p-8 flex flex-col items-center">
-                {plan.popular && (
-                  <div className="bg-cyan-500 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
-                    Mais Recomendado
-                  </div>
-                )}
-                <h3 className="text-2xl font-black mb-1">{plan.name}</h3>
-                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-8">{plan.credits} Créditos</div>
-                
-                <div className="flex items-baseline gap-1 mb-8">
-                  <span className="text-xl font-bold text-slate-400">R$</span>
-                  <span className="text-6xl font-black tracking-tighter text-white">{plan.price}</span>
-                </div>
-                
-                <div className="w-full space-y-4 mb-10 text-left">
-                  {commonFeatures.map((f, i) => (
-                    <div key={i} className="flex items-center gap-3 text-[11px] font-semibold text-slate-400">
-                      <CheckCircle2 className={`w-4 h-4 shrink-0 ${plan.popular ? 'text-cyan-400' : 'text-slate-600'}`} />
-                      {f}
+          {plans.map((plan) => {
+            const planMessage = encodeURIComponent(`Olá! Gostaria de contratar o Plano ${plan.name} de ${plan.credits} créditos da SalaVip.`);
+            const planUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${planMessage}`;
+            
+            return (
+              <div 
+                key={plan.id} 
+                className={`glass rounded-[2.5rem] p-1 transition-all duration-500 hover:-translate-y-2 group ${plan.popular ? 'border-cyan-500/50 ring-4 ring-cyan-500/5 shadow-2xl scale-105 z-10' : 'border-white/5'}`}
+              >
+                <div className="p-8 flex flex-col items-center">
+                  {plan.popular && (
+                    <div className="bg-cyan-500 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
+                      Mais Recomendado
                     </div>
-                  ))}
-                </div>
+                  )}
+                  <h3 className="text-2xl font-black mb-1">{plan.name}</h3>
+                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-8">{plan.credits} Créditos</div>
+                  
+                  <div className="flex items-baseline gap-1 mb-8">
+                    <span className="text-xl font-bold text-slate-400">R$</span>
+                    <span className="text-6xl font-black tracking-tighter text-white">{plan.price}</span>
+                  </div>
+                  
+                  <div className="w-full space-y-4 mb-10 text-left">
+                    {commonFeatures.map((f, i) => (
+                      <div key={i} className="flex items-center gap-3 text-[11px] font-semibold text-slate-400">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${plan.popular ? 'text-cyan-400' : 'text-slate-600'}`} />
+                        {f}
+                      </div>
+                    ))}
+                  </div>
 
-                <button className={`w-full py-5 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center justify-center gap-2 ${plan.popular ? 'bg-cyan-500 text-black shadow-lg hover:bg-cyan-400' : 'bg-white/5 text-white hover:bg-white/10'}`}>
-                  Abrir Meu Painel
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                </button>
+                  <a 
+                    href={planUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full py-5 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center justify-center gap-2 ${plan.popular ? 'bg-cyan-500 text-black shadow-lg hover:bg-cyan-400' : 'bg-white/5 text-white hover:bg-white/10'}`}
+                  >
+                    Abrir Meu Painel
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -374,8 +389,9 @@ export default function App() {
       </main>
       <Footer />
       
+      {/* Fixed WhatsApp Button */}
       <a 
-        href="https://wa.me/5592992928766" 
+        href={WHATSAPP_URL} 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-gradient-to-tr from-cyan-500 to-violet-600 text-white p-5 rounded-3xl shadow-[0_20px_40px_rgba(34,211,238,0.3)] transition-all transform hover:scale-110 active:scale-95 flex items-center gap-3 font-bold group border border-white/20"
