@@ -25,6 +25,7 @@
       }
       .animate-marquee {
         display: flex;
+        width: -moz-max-content;
         width: max-content;
         animation: marquee 25s linear infinite;
       }
@@ -34,6 +35,8 @@
 
       .text-glow { text-shadow: 0 0 15px rgba(34, 211, 238, 0.4); }
     </style>
+
+<link rel="stylesheet" href="/index.css">
   <script type="importmap">
 {
   "imports": {
@@ -46,10 +49,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <script type="module" crossorigin src="/assets/index-Do0P5fNi.js"></script>
 </head>
   <body class="bg-[#020617] text-slate-100 antialiased selection:bg-cyan-500/30">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
