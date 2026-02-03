@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SalaVip - Sua Revenda de IPTV Premium</title>
-    <!-- Tailwind via CDN para carregamento instantâneo de estilos básicos -->
+    <!-- Tailwind via CDN para suporte imediato de estilos globais -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -46,11 +46,10 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-[#020617] text-slate-100 antialiased selection:bg-cyan-500/30">
     <div id="root"></div>
-    <!-- O Vite transformará este arquivo .tsx em .js durante o build -->
+    <!-- O Vite gerencia este arquivo no build. Não use importmaps aqui. -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
