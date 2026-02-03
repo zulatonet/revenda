@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   CheckCircle2, 
   XCircle, 
@@ -11,7 +10,11 @@ import {
   Zap,
   ArrowRight,
   ShieldCheck,
-  Server
+  Server,
+  Coins,
+  Timer,
+  Percent,
+  X
 } from 'lucide-react';
 
 // --- Types ---
@@ -26,9 +29,93 @@ interface Plan {
 // --- Constants ---
 const WHATSAPP_NUMBER = "554799970313";
 const DEFAULT_MESSAGE = encodeURIComponent("Olá. Gostaria de ter mais informações sobre a Revenda de Créditos SalaVip");
+const CRYPTO_MESSAGE = encodeURIComponent("Olá! Vi a oferta no site e quero garantir meus 6% de desconto pagando com cripto!");
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_MESSAGE}`;
+const CRYPTO_WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${CRYPTO_MESSAGE}`;
 
 // --- Components ---
+
+const PromoModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  const [timeLeft, setTimeLeft] = useState(600); // 10 minutos
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [isOpen]);
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+      <div className="glass max-w-lg w-full rounded-[3rem] border-cyan-500/30 overflow-hidden relative shadow-2xl shadow-cyan-500/10">
+        <button 
+          onClick={onClose}
+          className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-colors text-slate-400"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="p-8 md:p-12 text-center">
+          <div className="flex justify-center gap-4 mb-6">
+            <div className="w-16 h-16 bg-cyan-500/20 rounded-2xl flex items-center justify-center text-cyan-400 animate-bounce">
+              <Coins size={32} />
+            </div>
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500 text-black font-black text-[10px] uppercase tracking-widest mb-6">
+            <Timer size={12} /> Oferta Expira em {formatTime(timeLeft)}
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+            DESCONTO <span className="text-cyan-400">IMPERDÍVEL</span>
+          </h2>
+          
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <span className="text-6xl font-black text-white tracking-tighter">6%</span>
+            <div className="text-left">
+              <div className="text-cyan-400 font-black text-xl leading-none">OFF</div>
+              <div className="text-slate-400 text-xs font-bold uppercase tracking-tight">Em Cripto</div>
+            </div>
+          </div>
+
+          <p className="text-slate-400 text-sm md:text-base mb-8 leading-relaxed">
+            Economize agora pagando com <b>Bitcoin, USDT ou Depix</b>. A maneira mais rápida e segura de ativar seu painel.
+          </p>
+
+          <div className="space-y-4">
+            <a 
+              href={CRYPTO_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-gradient-to-r from-cyan-500 to-violet-600 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-[1.02] transition-transform shadow-xl shadow-cyan-500/20"
+            >
+              Quero Meus 6% de Desconto
+              <ArrowRight size={16} />
+            </a>
+            <button 
+              onClick={onClose}
+              className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] hover:text-slate-300 transition-colors"
+            >
+              Continuar sem desconto
+            </button>
+          </div>
+        </div>
+
+        {/* Decoração lateral */}
+        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-violet-600/20 blur-[60px] rounded-full"></div>
+      </div>
+    </div>
+  );
+};
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
@@ -339,6 +426,15 @@ const Footer = () => (
 );
 
 export default function App() {
+  const [showPromo, setShowPromo] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPromo(true);
+    }, 60000); // 60 segundos
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#020617] text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
       <Navbar />
@@ -389,6 +485,9 @@ export default function App() {
       </main>
       <Footer />
       
+      {/* Promo Modal */}
+      <PromoModal isOpen={showPromo} onClose={() => setShowPromo(false)} />
+
       {/* Fixed WhatsApp Button */}
       <a 
         href={WHATSAPP_URL} 
