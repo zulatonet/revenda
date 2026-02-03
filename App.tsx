@@ -14,7 +14,8 @@ import {
   Coins,
   Timer,
   Percent,
-  X
+  X,
+  Wallet
 } from 'lucide-react';
 
 // --- Types ---
@@ -263,7 +264,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="planos" className="py-24 px-4 relative">
+    <section id="planos" className="pt-24 pb-12 px-4 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Escolha o seu <span className="text-cyan-400">Plano VIP</span></h2>
@@ -312,7 +313,7 @@ const Pricing = () => {
                     rel="noopener noreferrer"
                     className={`w-full py-5 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center justify-center gap-2 ${plan.popular ? 'bg-cyan-500 text-black shadow-lg hover:bg-cyan-400' : 'bg-white/5 text-white hover:bg-white/10'}`}
                   >
-                    Abrir Meu Painel
+                    Comprar Agora
                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
@@ -324,6 +325,50 @@ const Pricing = () => {
     </section>
   );
 };
+
+const CryptoDiscountBanner = () => (
+  <section className="pb-24 px-4">
+    <div className="max-w-7xl mx-auto">
+      <div className="glass rounded-[3rem] p-8 md:p-12 border-cyan-500/30 overflow-hidden relative group">
+        <div className="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/10 blur-[100px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-700"></div>
+        
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
+          <div className="flex-1 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 text-cyan-400 font-black text-[10px] uppercase tracking-widest mb-6 border border-cyan-500/20">
+               <Wallet size={14} /> Oferta Especial Ativa
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter leading-none">
+              PAGUE COM <span className="text-cyan-400">CRIPTOMOEDAS</span><br/>
+              E GANHE <span className="text-violet-400">6% DE DESCONTO</span>
+            </h2>
+            <p className="text-slate-400 text-base md:text-lg mb-8 max-w-xl mx-auto lg:mx-0 font-medium">
+              Aceitamos <b>Bitcoin (BTC), USDT e Depix</b>. A maneira mais segura, privada e barata de realizar suas recargas de painel.
+            </p>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+               {["BITCOIN", "USDT", "DEPIX"].map(coin => (
+                 <div key={coin} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black tracking-widest text-slate-400">
+                   {coin}
+                 </div>
+               ))}
+            </div>
+          </div>
+          
+          <div className="shrink-0">
+            <a 
+              href={CRYPTO_WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-10 py-6 rounded-3xl font-black text-lg uppercase tracking-widest hover:scale-105 transition-all shadow-[0_20px_50px_rgba(255,255,255,0.1)] flex items-center gap-3"
+            >
+              Garantir meus 6% OFF
+              <ArrowRight size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const Testimonials = () => (
   <section className="py-24 px-4 bg-slate-950/80">
@@ -444,6 +489,7 @@ export default function App() {
         <AppPartners />
         <Testimonials />
         <Pricing />
+        <CryptoDiscountBanner />
         
         <section className="py-24 px-4 bg-slate-900/40">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
