@@ -4,16 +4,11 @@ import {
   CheckCircle2, 
   XCircle, 
   PlayCircle, 
-  Settings, 
   Users, 
   MessageCircle, 
   ChevronDown, 
   Star, 
-  Play,
   Zap,
-  TrendingUp,
-  Layers,
-  Crown,
   ArrowRight,
   ShieldCheck,
   Server
@@ -44,7 +39,7 @@ const Navbar = () => (
         <a href="#faq" className="hover:text-cyan-400 transition-colors">FAQ</a>
       </div>
       <a href="#planos" className="bg-white hover:bg-cyan-50 text-slate-900 px-5 py-2 rounded-xl font-bold text-sm transition-all transform hover:scale-105">
-        Planos
+        Começar Agora
       </a>
     </div>
   </nav>
@@ -75,7 +70,7 @@ const Hero = () => (
         <img 
           src="http://up.svplay.cv/u/2QMmUN.png" 
           alt="Painel SalaVip" 
-          className="w-full h-auto drop-shadow-2xl animate-float"
+          className="w-full h-auto drop-shadow-[0_20px_50px_rgba(34,211,238,0.2)] animate-float"
         />
       </div>
     </div>
@@ -93,12 +88,12 @@ const HowItWorks = () => (
         />
       </div>
       <div className="order-1 lg:order-2">
-        <h2 className="text-3xl font-black mb-10 text-white">Veja como é fácil ativar para seu cliente...</h2>
+        <h2 className="text-3xl font-black mb-10 text-white">Revendedor, veja como é fácil ativar para seu cliente...</h2>
         <div className="space-y-8">
           {[
-            { icon: <PlayCircle />, title: "Instalação Rápida", desc: "Seu cliente baixa o app através do link fornecido no painel e ativa em segundos." },
-            { icon: <Users />, title: "Gestão Simples", desc: "Você insere os dados de acesso (Login e Senha) e pronto, o cliente já está navegando." },
-            { icon: <Server />, title: "Estabilidade Garantida", desc: "Servidores de alta performance para filmes, séries e canais ao vivo sem travamentos." }
+            { icon: <PlayCircle />, title: "Seu cliente instala rápido", desc: "Baixe o aplicativo através do link fornecido no Painel após a compra. Conexões imediatas." },
+            { icon: <Users />, title: "Menos travamentos", desc: "Estrutura otimizada para que você não tenha reclamações. Basta colocar os dados de acesso." },
+            { icon: <Server />, title: "Cliente satisfeito e renovando", desc: "Pronto, agora você já pode usar a vontade seu IPTV para ver filmes, séries e jogos ao vivo." }
           ].map((item, i) => (
             <div key={i} className="flex gap-5 group">
               <div className="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center shrink-0 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-all">
@@ -121,52 +116,36 @@ const AppPartners = () => {
     "https://usuaistechpro.com.br/wp-content/uploads/2025/11/vizzion-logo-1-1.png",
     "https://usuaistechpro.com.br/wp-content/uploads/2025/11/logo-assist-plus-m-2.webp",
     "https://usuaistechpro.com.br/wp-content/uploads/2025/11/xcloud-logo-m.webp",
-    "https://usuaistechpro.com.br/wp-content/uploads/2025/11/vizzion-logo-1-1.png", // Duplicating for seamless loop
+    "https://usuaistechpro.com.br/wp-content/uploads/2025/11/vizzion-logo-1-1.png",
     "https://usuaistechpro.com.br/wp-content/uploads/2025/11/logo-assist-plus-m-2.webp",
     "https://usuaistechpro.com.br/wp-content/uploads/2025/11/xcloud-logo-m.webp",
   ];
 
   return (
-    <section className="py-24 bg-black overflow-hidden relative">
-      {/* Glow Effects */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-cyan-500/5 blur-[100px] -translate-y-1/2"></div>
-      <div className="absolute top-1/2 right-0 w-64 h-64 bg-violet-500/5 blur-[100px] -translate-y-1/2"></div>
-
+    <section className="py-32 bg-black overflow-hidden relative">
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/5 blur-[120px] -translate-y-1/2"></div>
       <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-        <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase tracking-tight text-white">TEMOS PARCERIA COM OS MELHORES APPS</h2>
-        <p className="text-slate-500 mb-16 text-sm md:text-base">Compatibilidade total com os aplicativos mais usados do mercado.</p>
+        <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tight text-white">TEMOS PARCERIA COM OS MELHORES APPS</h2>
+        <p className="text-slate-500 mb-20 text-base md:text-lg">Compatibilidade total com os aplicativos mais estáveis do mercado.</p>
         
-        {/* Marquee Container */}
-        <div className="relative w-full overflow-hidden mb-16">
-          {/* Gradient Masks */}
-          <div className="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-20"></div>
-          <div className="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-20"></div>
+        <div className="relative w-full overflow-hidden mb-20">
+          <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-black via-black/80 to-transparent z-20"></div>
+          <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-black via-black/80 to-transparent z-20"></div>
           
-          <div className="animate-marquee flex items-center gap-12 md:gap-24">
-            {/* First Set */}
-            {logos.map((logo, i) => (
-              <div key={`logo-1-${i}`} className="shrink-0 group">
+          <div className="animate-marquee flex items-center gap-20 md:gap-40">
+            {[...logos, ...logos].map((logo, i) => (
+              <div key={i} className="shrink-0 group">
                 <img 
                   src={logo} 
-                  className="h-20 md:h-28 w-auto object-contain brightness-90 contrast-125 group-hover:brightness-100 group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.2)]" 
-                  alt="App Partner" 
-                />
-              </div>
-            ))}
-            {/* Duplicate Set for Seamless Loop */}
-            {logos.map((logo, i) => (
-              <div key={`logo-2-${i}`} className="shrink-0 group">
-                <img 
-                  src={logo} 
-                  className="h-20 md:h-28 w-auto object-contain brightness-90 contrast-125 group-hover:brightness-100 group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.2)]" 
-                  alt="App Partner" 
+                  className="h-24 md:h-40 w-auto object-contain brightness-110 contrast-125 grayscale hover:grayscale-0 transition-all duration-500 drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]" 
+                  alt="Partner Logo" 
                 />
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-[10px] md:text-xs font-black text-slate-500 uppercase tracking-[0.4em] max-w-4xl mx-auto leading-relaxed">
+        <p className="text-xs md:text-sm font-black text-slate-600 uppercase tracking-[0.5em] max-w-5xl mx-auto leading-relaxed">
           ASSIST+ • APP BRASIL IPTV • PLAY SIM • MAGIC PLAY • VIZZION PLAYER • XCLOUD • CORE PLAY
         </p>
       </div>
@@ -176,18 +155,18 @@ const AppPartners = () => {
 
 const Pricing = () => {
   const plans: Plan[] = [
-    { id: '1', name: 'BASIC VIP', credits: 10, price: '95' },
-    { id: '2', name: 'PROFESSIONAL', credits: 20, price: '170' },
+    { id: '1', name: 'BASIC', credits: 10, price: '95' },
+    { id: '2', name: 'PRO', credits: 20, price: '170' },
     { id: '3', name: 'ENTERPRISE', credits: 50, price: '375', popular: true },
-    { id: '4', name: 'MASTER VIP', credits: 100, price: '650' },
+    { id: '4', name: 'MASTER', credits: 100, price: '650' },
   ];
 
   const commonFeatures = [
-    "Servidores IPTV / P2P",
+    "Servidores IPTV / P2P Estáveis",
     "Painel Híbrido Grátis",
-    "Suporte Especializado",
-    "Material de Divulgação",
-    "Catálogo 4K Atualizado",
+    "Suporte 24h Especializado",
+    "Material de Divulgação Pronto",
+    "Filmes e Séries em 4K",
     "Canais Adultos com Senha"
   ];
 
@@ -195,10 +174,10 @@ const Pricing = () => {
     <section id="planos" className="py-24 px-4 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Escolha o <span className="text-cyan-400">plano ideal</span></h2>
-          <div className="glass inline-flex items-center gap-3 px-4 py-2 rounded-full border-cyan-500/20">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 uppercase">Escolha o seu <span className="text-cyan-400">Plano VIP</span></h2>
+          <div className="glass inline-flex items-center gap-3 px-6 py-2 rounded-full border-cyan-500/20">
              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-             <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Recarga mensal • Créditos válidos por 30 dias</span>
+             <span className="text-[10px] font-black uppercase tracking-widest text-slate-300">Recarga Mensal • Ativação Automática</span>
           </div>
         </div>
 
@@ -206,24 +185,23 @@ const Pricing = () => {
           {plans.map((plan) => (
             <div 
               key={plan.id} 
-              className={`glass rounded-[2rem] p-1 transition-all duration-500 hover:-translate-y-2 group ${plan.popular ? 'border-cyan-500/50 ring-4 ring-cyan-500/5 shadow-2xl' : 'border-white/5'}`}
+              className={`glass rounded-[2.5rem] p-1 transition-all duration-500 hover:-translate-y-2 group ${plan.popular ? 'border-cyan-500/50 ring-4 ring-cyan-500/5 shadow-2xl scale-105 z-10' : 'border-white/5'}`}
             >
               <div className="p-8 flex flex-col items-center">
                 {plan.popular && (
                   <div className="bg-cyan-500 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
-                    Mais Vendido
+                    Mais Recomendado
                   </div>
                 )}
-                <h3 className="text-xl font-black mb-1">{plan.name}</h3>
-                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-8">{plan.credits} Créditos Mensais</div>
+                <h3 className="text-2xl font-black mb-1">{plan.name}</h3>
+                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-8">{plan.credits} Créditos</div>
                 
                 <div className="flex items-baseline gap-1 mb-8">
-                  <span className="text-lg font-bold text-slate-400">R$</span>
-                  <span className="text-5xl font-black tracking-tighter text-white">{plan.price}</span>
-                  <span className="text-slate-500 text-xs font-bold">/mês</span>
+                  <span className="text-xl font-bold text-slate-400">R$</span>
+                  <span className="text-6xl font-black tracking-tighter text-white">{plan.price}</span>
                 </div>
                 
-                <div className="w-full space-y-3 mb-10 text-left">
+                <div className="w-full space-y-4 mb-10 text-left">
                   {commonFeatures.map((f, i) => (
                     <div key={i} className="flex items-center gap-3 text-[11px] font-semibold text-slate-400">
                       <CheckCircle2 className={`w-4 h-4 shrink-0 ${plan.popular ? 'text-cyan-400' : 'text-slate-600'}`} />
@@ -232,8 +210,8 @@ const Pricing = () => {
                   ))}
                 </div>
 
-                <button className={`w-full py-4 rounded-xl font-black uppercase text-xs tracking-widest transition-all flex items-center justify-center gap-2 ${plan.popular ? 'bg-cyan-500 text-black shadow-lg hover:bg-cyan-400' : 'bg-white/5 text-white hover:bg-white/10'}`}>
-                  Selecionar
+                <button className={`w-full py-5 rounded-2xl font-black uppercase text-xs tracking-widest transition-all flex items-center justify-center gap-2 ${plan.popular ? 'bg-cyan-500 text-black shadow-lg hover:bg-cyan-400' : 'bg-white/5 text-white hover:bg-white/10'}`}>
+                  Abrir Meu Painel
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -246,29 +224,29 @@ const Pricing = () => {
 };
 
 const Testimonials = () => (
-  <section className="py-24 px-4 bg-slate-950">
+  <section className="py-24 px-4 bg-slate-950/80">
     <div className="max-w-7xl mx-auto">
-      <h2 className="text-3xl font-black text-center mb-16 uppercase tracking-tight text-white">Revendedores que confiam no Painel SalaVip</h2>
+      <h2 className="text-3xl font-black text-center mb-16 uppercase tracking-tight text-white">Revendedores que Confiam no SalaVip</h2>
       <div className="grid md:grid-cols-3 gap-8">
         {[
           { name: "Rodrigo A.", loc: "Curitiba - PR", biz: "Conecta Play", text: "Eu não tinha nenhuma experiência com IPTV. Com o painel e o suporte, consegui começar sem dificuldade e hoje já tenho meus próprios clientes." },
           { name: "Mariana L.", loc: "Salvador - BA", biz: "StreamNet", text: "Já usei outros painéis e sempre tive problema com travamento e falta de suporte. Aqui foi diferente, tudo funciona e o atendimento responde rápido." },
           { name: "Thiago R.", loc: "Belo Horizonte - MG", biz: "FullMax TV", text: "O que mais gostei foi a facilidade. O painel é simples, os apps ajudam muito e o suporte realmente acompanha. Isso fez eu continuar." }
         ].map((t, i) => (
-          <div key={i} className="glass p-8 rounded-3xl border-white/5 hover:border-cyan-500/30 transition-all">
+          <div key={i} className="glass p-10 rounded-[2rem] border-white/5 hover:border-cyan-500/30 transition-all">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center font-bold text-white shadow-lg">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center font-bold text-white text-xl shadow-lg">
                 {t.name[0]}
               </div>
               <div>
-                <h4 className="font-bold text-white text-sm">{t.name} | <span className="text-cyan-400">{t.biz}</span></h4>
+                <h4 className="font-bold text-white text-base">{t.name} | <span className="text-cyan-400">{t.biz}</span></h4>
                 <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">{t.loc}</p>
               </div>
             </div>
-            <div className="flex gap-1 mb-4">
+            <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-cyan-400 text-cyan-400" />)}
             </div>
-            <p className="text-slate-400 text-xs italic leading-relaxed">"{t.text}"</p>
+            <p className="text-slate-400 text-sm italic leading-relaxed font-medium">"{t.text}"</p>
           </div>
         ))}
       </div>
@@ -278,11 +256,11 @@ const Testimonials = () => (
 
 const FAQ = () => {
   const faqs = [
-    { q: "O painel SalaVip é pré-pago ou mensalista?", a: "Trabalhamos com o modelo de planos mensais para garantir a melhor infraestrutura e suporte contínuo para sua revenda." },
-    { q: "Os créditos expiram?", a: "Sim. Como é um plano mensalista com infraestrutura dedicada, seus créditos devem ser utilizados dentro de 30 dias. A recarga mensal garante a continuidade do seu painel." },
-    { q: "Quais canais estão disponíveis?", a: "Todos os canais abertos e fechados, esportes ao vivo (Futebol, F1, Lutas), Filmes e Séries atualizados diariamente." },
-    { q: "Como recebo o acesso?", a: "Após a confirmação automática do pagamento, você receberá seus dados de acesso diretamente no seu e-mail cadastrado." },
-    { q: "Preciso de computador para gerenciar?", a: "Não. Nosso painel é 100% responsivo e pode ser gerenciado totalmente pelo celular ou tablet." }
+    { q: "O painel SalaVip é pré-pago ou mensalista?", a: "Trabalhamos com o modelo de planos mensais para garantir a melhor infraestrutura dedicada e suporte contínuo para sua revenda." },
+    { q: "Os créditos expiram?", a: "Como é um plano mensalista com servidores de alta performance, seus créditos devem ser utilizados dentro de 30 dias. A recarga garante a manutenção da sua estrutura." },
+    { q: "Quais canais estão disponíveis?", a: "Grade completa de canais abertos e fechados, esportes (Futebol, F1, Lutas), além de milhares de filmes e séries atualizados diariamente." },
+    { q: "Como recebo o acesso?", a: "Após a confirmação automática do pagamento, você receberá seus dados de acesso diretamente no seu e-mail cadastrado em poucos minutos." },
+    { q: "Posso gerenciar pelo celular?", a: "Sim! Nosso painel é moderno e 100% responsivo, permitindo que você ative e renove clientes de qualquer lugar pelo celular." }
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -290,19 +268,19 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-24 px-4 bg-black">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-black text-center mb-16 text-white uppercase"><span className="text-cyan-400">Dúvidas</span> Frequentes</h2>
+        <h2 className="text-3xl font-black text-center mb-16 text-white uppercase tracking-tighter">Dúvidas Frequentes</h2>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="glass rounded-2xl overflow-hidden border-white/5">
+            <div key={i} className="glass rounded-2xl overflow-hidden border-white/5 transition-all duration-300">
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-all"
               >
-                <span className="font-bold text-slate-200 text-sm">{faq.q}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform text-cyan-500 ${openIndex === i ? 'rotate-180' : ''}`} />
+                <span className="font-bold text-slate-200 text-sm md:text-base">{faq.q}</span>
+                <ChevronDown className={`w-5 h-5 transition-transform text-cyan-500 shrink-0 ${openIndex === i ? 'rotate-180' : ''}`} />
               </button>
               {openIndex === i && (
-                <div className="px-6 pb-6 text-slate-400 text-xs leading-relaxed border-t border-white/5 pt-4">
+                <div className="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4 animate-in fade-in duration-500">
                   {faq.a}
                 </div>
               )}
@@ -315,29 +293,30 @@ const FAQ = () => {
 };
 
 const Footer = () => (
-  <footer className="py-16 border-t border-white/5 bg-black">
+  <footer className="py-20 border-t border-white/5 bg-black">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center font-bold text-white">S</div>
-            <span className="text-xl font-black text-white">SALAVIP</span>
+          <div className="flex items-center gap-3 mb-6 justify-center md:justify-start">
+            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-violet-600 rounded-xl flex items-center justify-center font-bold text-white shadow-lg">S</div>
+            <span className="text-2xl font-black text-white tracking-tight">SALAVIP</span>
           </div>
-          <p className="text-slate-600 text-xs max-w-xs">A plataforma de revenda mais estável e profissional do mercado.</p>
+          <p className="text-slate-500 text-sm max-w-sm">A plataforma de revenda definitiva para quem busca estabilidade e lucro real.</p>
         </div>
-        <div className="flex gap-10 text-[10px] font-black uppercase tracking-widest text-slate-500">
-           <a href="#home" className="hover:text-cyan-400">Início</a>
-           <a href="#planos" className="hover:text-cyan-400">Planos</a>
-           <a href="#faq" className="hover:text-cyan-400">FAQ</a>
+        <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">
+           <a href="#home" className="hover:text-cyan-400 transition-colors">Início</a>
+           <a href="#como-funciona" className="hover:text-cyan-400 transition-colors">Funcionalidades</a>
+           <a href="#planos" className="hover:text-cyan-400 transition-colors">Planos</a>
+           <a href="#faq" className="hover:text-cyan-400 transition-colors">Suporte</a>
         </div>
       </div>
-      <div className="mt-12 pt-8 border-t border-white/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[9px] text-slate-700 font-bold uppercase tracking-widest">
+      <div className="mt-16 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-[10px] text-slate-700 font-bold uppercase tracking-[0.3em]">
           Copyright SalaVip © 2025 - Todos os direitos reservados.
         </p>
-        <div className="flex gap-4 opacity-20 grayscale">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" className="h-3 invert" alt="Pix" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-5" alt="Mastercard" />
+        <div className="flex gap-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.png" className="h-4 invert" alt="Pix" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-6" alt="Mastercard" />
         </div>
       </div>
     </div>
@@ -346,7 +325,7 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <div className="min-h-screen gradient-bg text-slate-200">
+    <div className="min-h-screen bg-[#020617] text-slate-200 selection:bg-cyan-500/30 overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
@@ -355,25 +334,24 @@ export default function App() {
         <Testimonials />
         <Pricing />
         
-        {/* Comparison Section */}
-        <section className="py-24 px-4 bg-slate-900/30">
+        <section className="py-24 px-4 bg-slate-900/40">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="glass p-8 rounded-3xl border-red-500/10">
-              <h3 className="text-xl font-black text-red-500 mb-6 uppercase">Outros Painéis</h3>
-              <ul className="space-y-4">
-                {["Cliente reclamando de quedas", "Suporte que nunca responde", "Falhas no sistema nos domingos", "Iniciantes ficam perdidos"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-500 text-xs">
-                    <XCircle className="w-4 h-4 text-red-500 shrink-0" /> {item}
+            <div className="glass p-10 rounded-[2.5rem] border-red-500/10 hover:border-red-500/20 transition-colors">
+              <h3 className="text-2xl font-black text-red-500 mb-8 uppercase tracking-tighter">Outros Painéis</h3>
+              <ul className="space-y-5">
+                {["Servidores instáveis que caem nos domingos", "Suporte demorado ou inexistente", "Dificuldade para iniciantes sem material", "Muitas reclamações e reembolsos"].map((item, i) => (
+                  <li key={i} className="flex items-center gap-4 text-slate-500 text-sm">
+                    <XCircle className="w-5 h-5 text-red-500/50 shrink-0" /> {item}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="glass p-8 rounded-3xl border-cyan-500/20 shadow-2xl">
-              <h3 className="text-xl font-black text-cyan-400 mb-6 uppercase">SalaVip Pro</h3>
-              <ul className="space-y-4">
-                {["Servidores próprios ultra-estáveis", "Suporte humano e ágil", "Aplicativos gratuitos inclusos", "Material completo para iniciantes"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-white text-xs font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" /> {item}
+            <div className="glass p-10 rounded-[2.5rem] border-cyan-500/20 shadow-[0_20px_50px_rgba(34,211,238,0.1)] hover:border-cyan-500/40 transition-colors">
+              <h3 className="text-2xl font-black text-cyan-400 mb-8 uppercase tracking-tighter">SalaVip Pro</h3>
+              <ul className="space-y-5">
+                {["Servidores próprios ultra-estáveis", "Suporte humano focado em resolver", "Material profissional de vendas incluso", "Aulas e guias completos para revendedores"].map((item, i) => (
+                  <li key={i} className="flex items-center gap-4 text-white text-sm font-bold">
+                    <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" /> {item}
                   </li>
                 ))}
               </ul>
@@ -383,13 +361,12 @@ export default function App() {
 
         <FAQ />
         
-        {/* Softened Bottom CTA */}
         <section className="py-32 px-4 text-center">
-           <div className="max-w-4xl mx-auto glass p-12 md:p-20 rounded-[3rem] border-cyan-500/20 shadow-2xl relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/10 blur-[80px] rounded-full"></div>
-              <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight uppercase">Pronto para começar com <span className="text-cyan-400">estabilidade?</span></h2>
-              <p className="text-slate-400 mb-10 max-w-lg mx-auto text-sm">Ofereça o melhor serviço de IPTV para seus clientes com o painel que não te deixa na mão.</p>
-              <a href="#planos" className="bg-white text-black px-12 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-xl inline-block">
+           <div className="max-w-4xl mx-auto glass p-12 md:p-24 rounded-[4rem] border-cyan-500/10 shadow-2xl relative overflow-hidden group">
+              <div className="absolute -top-12 -right-12 w-64 h-64 bg-cyan-500/10 blur-[100px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-700"></div>
+              <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight uppercase tracking-tighter">Pronto para começar com <span className="text-cyan-400">estabilidade?</span></h2>
+              <p className="text-slate-400 mb-12 max-w-xl mx-auto text-base md:text-lg">Ofereça o melhor serviço de IPTV para seus clientes e garanta renovações constantes com a SalaVip.</p>
+              <a href="#planos" className="bg-white text-black px-14 py-6 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-[0_15px_30px_rgba(255,255,255,0.1)] inline-block">
                  Ver Planos Agora
               </a>
            </div>
@@ -397,15 +374,14 @@ export default function App() {
       </main>
       <Footer />
       
-      {/* Fixed WhatsApp Button */}
       <a 
         href="https://wa.me/5592992928766" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-50 bg-gradient-to-tr from-cyan-500 to-violet-600 text-white p-5 rounded-3xl shadow-2xl transition-all transform hover:scale-110 active:scale-90 flex items-center gap-3 font-bold group border border-white/20"
+        className="fixed bottom-8 right-8 z-50 bg-gradient-to-tr from-cyan-500 to-violet-600 text-white p-5 rounded-3xl shadow-[0_20px_40px_rgba(34,211,238,0.3)] transition-all transform hover:scale-110 active:scale-95 flex items-center gap-3 font-bold group border border-white/20"
       >
-        <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-        <span className="hidden md:inline pr-2 uppercase text-[10px] tracking-widest font-black">Suporte Especializado</span>
+        <MessageCircle className="w-7 h-7 group-hover:rotate-12 transition-transform" />
+        <span className="hidden md:inline pr-2 uppercase text-[11px] tracking-[0.2em] font-black">Falar com Suporte</span>
       </a>
     </div>
   );
